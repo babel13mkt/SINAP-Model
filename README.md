@@ -57,7 +57,86 @@ The variable $V$ (Vulnerability) operationalizes the activation of **cognitive s
 The model generates concrete, time-windowed behavioral predictions (0–24h, 24–48h, 48–72h), classifying probable behavioral phases: Stonewalling, Baiting, Escalation, Discharge, or Re-engagement. This operationalizes clinical intuition into testable hypotheses.
 
 ### **P — Psychometric & Quantitative Foundation**
-All variables are scored on a normalized $[0, 10]$ scale, enabling cross-case comparison, longitudinal tracking, and sensitivity analysis. The $\text{clamp}$ function ensures numerical stability. The model is compatible with standard psychometric frameworks (e.g., PTSD Checklist, Difficulties in Emotion Regulation Scale).
+All variables are scored on a normalized $[0, 10]$ scale, enabling cross-case comparison, longitudinal tracking, and sensitivity analysis. The $\text{clamp}$ function ensures numerical stability. The model is compatible with standard psychometric frameworks (e.g., PTSD Checklist, Difficulties in Emotion Regulation Scale — DERS).
+
+---
+
+## 🩺 Clinical Applications & Diagnostic Framework
+
+> This section is intended for clinical psychologists working within CBT (Cognitive-Behavioral Therapy) and Systemic frameworks. Each SINAP variable is directly mapped to observable clinical phenomena, enabling the clinician to parameterize the model from session notes, behavioral observation, and standardized assessment instruments.
+
+### 1. Personality Disorders — DSM-5 Alignment
+
+The SINAP model demonstrates particular efficacy in the functional analysis of **Borderline Personality Disorder (BPD / TLP)**, as defined in the DSM-5 (APA, 2013). The model's variables directly operationalize three core diagnostic criteria:
+
+| DSM-5 BPD Criterion | SINAP Variable(s) | Clinical Observation |
+|---|---|---|
+| **Criterion 1** — Frantic efforts to avoid real or imagined abandonment | $E$ (External Stressors) + $A$ (Asymmetry) | Separation cues or perceived rejection spikes $E$; perceived power imbalance elevates $A$, accelerating $T_d$ |
+| **Criterion 2** — Unstable and intense interpersonal relationships | $R_2$ (Intrusion) + $\gamma$ (Sensitivity) | The subject oscillates between idealization and devaluation; intrusive relational attempts ($R_2$) are amplified quadratically by $\gamma$, generating rapid $T_d$ escalation |
+| **Criterion 6** — Affective instability due to a marked reactivity of mood | $\lambda$ (Persistence) + $\Delta T_d$ | A high $\lambda$ value (e.g., 0.90) reflects the persistence of dysregulated mood states across days; a large $\Delta T_d$ captures sudden affective shifts — a direct correlate of emotional lability |
+
+> **Clinical Note (CBT/DBT perspective):** In BPD cases, the clinician should pay special attention to the $\gamma \cdot R_2^2$ term. Because $R_2$ is squared, even moderate intrusive regulation attempts (e.g., repeated phone calls, guilt-inducing messages, triangulation via third parties) produce a disproportionate increase in $T_d$. This non-linearity models the BPD subject's extreme sensitivity to perceived control or abandonment threats. This aligns directly with Linehan's (1993) biosocial theory of BPD, in which emotional sensitivity + invalidating environment = dysregulation spiral.
+
+---
+
+### 2. Attachment Dynamics
+
+The SINAP model provides a formal framework for analyzing attachment system collapse. The variables $\gamma$ and $R_2$ are the primary operationalizers of attachment dysregulation:
+
+#### 🔴 Disorganized Attachment (Main & Hesse, 1990)
+Characterized by the simultaneous activation of **approach** and **avoidance** behavioral systems. In SINAP terms:
+- **$\gamma$ (Intrusion Sensitivity)** is maximally elevated (close to 1.0): any proximity attempt by the attachment figure simultaneously activates the fear system.
+- **$R_2$ (Intrusion)** is high because the subject or the attachment figure uses paradoxical, coercive, or frightening strategies that function as regulation attempts but produce the opposite effect.
+- **Systemic result:** The $\gamma \cdot R_2^2$ term becomes the dominant driver of $T_d$, collapsing the secure base and making stable $T_d$ values ($< 3$) functionally impossible without external containment.
+
+#### 🟡 Anxious-Ambivalent Attachment (Ainsworth, 1978)
+Characterized by hyperactivation of the attachment system and fear of abandonment:
+- **$\lambda$** (Persistence) is elevated: relational anxiety from previous interactions persists into the current state.
+- **$A$** (Asymmetry) is consistently high: the subject perceives a chronic power differential with the attachment figure, generating a self-reinforcing loop where $T_d$ rarely returns to baseline.
+- **$R_1$** (Effective Regulation) is chronically low: the subject struggles to self-soothe in the absence of external reassurance from the attachment figure.
+
+> **Clinical Note (Systemic framework):** For clinicians using structural or strategic family therapy models, $A$ (Systemic Asymmetry) maps directly to **coalitional patterns** and **boundary violations**. A persistently high $A$ indicates that the therapeutic focus must address the relational system before individual regulation is achievable.
+
+---
+
+### 3. Cluster B Dysregulation Spectrum
+
+Beyond BPD, the SINAP model is applicable across the **Cluster B personality spectrum** where interpersonal conflict maintenance is a central feature:
+
+#### Narcissistic Personality Disorder (NPD) — Devaluation Phase
+During the devaluation phase (following idealization collapse), the NPD subject generates a relational context in which **the other person's** SINAP variables are severely impacted:
+- The NPD subject's behaviors function as a constant $E$ (External Stressor) source for their interlocutor.
+- **$A$ (Systemic Asymmetry)** is architecturally maintained by the NPD subject through mechanisms of contempt, gaslighting, and social invalidation — keeping the other party's $A$ chronically elevated.
+- **Intervention implication:** Lowering $A$ is the primary clinical lever. This is achieved not through confronting the NPD subject directly, but by rebuilding the interlocutor's **identity resources** ($R_1$), reducing their schema activation ($V$), and creating external boundary structures that reduce $E$.
+
+#### Histrionic & Antisocial Spectra
+- **Histrionic:** High $E$ generation (dramatic, stimulus-seeking behaviors) combined with low $R_1$ produces rapid $T_d$ oscillation. The model can track the subject's own regulation trajectory across sessions.
+- **Antisocial:** $\gamma$ is characteristically low in the subject itself (reduced emotional sensitivity), but the subject functions as a high-$E$ and high-$A$ agent in the relational system of others.
+
+---
+
+## 🧭 Clinical Usage Guide
+
+### For CBT Clinicians
+
+Map the following CBT constructs directly to SINAP variables during case formulation:
+
+| CBT Construct | SINAP Variable | Assessment Source |
+|---|---|---|
+| Schema Activation (Young, 2003) | $V$ | YSQ-S3 (Young Schema Questionnaire) |
+| Life Events / Stressors | $E$ | LES (Life Experiences Survey) or session observation |
+| Coping Skills / Regulation Repertoire | $R_1$ | DERS (Difficulties in Emotion Regulation Scale) — inverted score |
+| Reassurance-Seeking / Intrusive Behaviors | $R_2$ | Direct behavioral observation or collateral report |
+| Emotional Sensitivity (baseline) | $\gamma$ | Clinical estimate; cross-validate with DERS Subscale 1 |
+| Relational Power Differential | $A$ | IIP-32 (Inventory of Interpersonal Problems) |
+| Baseline Affect / Mood Inertia | $\lambda$ | PANAS across multiple sessions; or MSSD (Mean Square Successive Difference) |
+
+### For Systemic Clinicians
+
+- Use $A$ (Systemic Asymmetry) as the entry point for **circular questioning**: "What would happen to the tension in the system if the power differential were reduced?"
+- Map $R_2$ to **communication patterns**: intrusive or paradoxical communication acts as over-regulation, amplified by the other party's $\gamma$.
+- Use $\Delta T_d$ to evaluate **homeostatic vs. morphogenetic** system trajectories across sessions: a positive $\Delta T_d$ trend over multiple sessions indicates a morphogenetic spiral (escalation); a negative trend suggests homeostatic stabilization.
+- The recursive structure of the model ($T_d$ depends on $T_{d-1}$) aligns with **circular causality** principles in systemic epistemology.
 
 ---
 
@@ -76,11 +155,11 @@ All variables are scored on a normalized $[0, 10]$ scale, enabling cross-case co
 
 To assess model robustness, the following perturbations are evaluated for each case:
 
-- What happens if $R_2$ increases by $+2$? *(More intrusive regulation)*
-- What happens if $R_1$ increases by $+2$? *(Better coping resources)*
-- What happens if $E$ decreases by $-2$? *(Stressor reduction)*
+- What happens if $R_2$ increases by $+2$? *(More intrusive regulation — models escalation of contact attempts)*
+- What happens if $R_1$ increases by $+2$? *(Better coping resources — models therapeutic progress)*
+- What happens if $E$ decreases by $-2$? *(Stressor reduction — models environmental containment)*
 
-Each perturbation recalculates $T_d$ and $R_c$ to show directional sensitivity.
+Each perturbation recalculates $T_d$ and $R_c$ to show directional sensitivity, enabling the clinician to identify the **highest-leverage intervention point** for a given case.
 
 ---
 
@@ -89,6 +168,7 @@ Each perturbation recalculates $T_d$ and $R_c$ to show directional sensitivity.
 - **Clinical Supervision**: Structured case formulation and risk assessment.
 - **Academic Research**: Computational modeling of affect regulation dynamics.
 - **Forensic Psychology**: Threat assessment in high-conflict interpersonal contexts.
+- **Teaching**: Operationalizing abstract DSM-5 criteria into quantifiable, trackable variables for psychology training programs.
 
 > ⚠️ **Disclaimer**: SINAP is a heuristic model. It organizes clinical variables and generates operational prognoses. It does **not** replace formal diagnosis or clinical judgment by a licensed professional.
 
@@ -96,11 +176,14 @@ Each perturbation recalculates $T_d$ and $R_c$ to show directional sensitivity.
 
 ## 📚 References
 
-- Beck, A. T. (1979). *Cognitive therapy and the emotional disorders.*
-- Young, J. E. (2003). *Schema therapy: A practitioner's guide.*
-- Bertalanffy, L. von (1968). *General System Theory.*
-- Linehan, M. M. (1993). *Cognitive-behavioral treatment of borderline personality disorder.*
+- American Psychiatric Association. (2013). *Diagnostic and statistical manual of mental disorders* (5th ed.). APA Publishing.
+- Ainsworth, M. D. S., Blehar, M. C., Waters, E., & Wall, S. (1978). *Patterns of attachment.* Erlbaum.
+- Beck, A. T. (1979). *Cognitive therapy and the emotional disorders.* International Universities Press.
+- Bertalanffy, L. von (1968). *General System Theory.* Braziller.
 - Gratz, K. L., & Roemer, L. (2004). Multidimensional assessment of emotion regulation and dysregulation. *Journal of Psychopathology and Behavioral Assessment, 26*(1), 41–54.
+- Linehan, M. M. (1993). *Cognitive-behavioral treatment of borderline personality disorder.* Guilford Press.
+- Main, M., & Hesse, E. (1990). Parents' unresolved traumatic experiences are related to infant disorganized attachment status. In M. T. Greenberg, D. Cicchetti, & E. M. Cummings (Eds.), *Attachment in the preschool years* (pp. 161–182). University of Chicago Press.
+- Young, J. E., Klosko, J. S., & Weishaar, M. E. (2003). *Schema therapy: A practitioner's guide.* Guilford Press.
 
 ---
 
