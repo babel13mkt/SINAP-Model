@@ -3,7 +3,7 @@
 > A heuristic computational model for dynamic assessment of emotional dysregulation in clinical and forensic psychology contexts.
 
 **Author:** Juan Andres Ubeda  
-**Affiliation:** Estudiante de Psicología, Universidad Maimónides (Argentina)  
+**Affiliation:** Juan Andres UBeda - Psicología - Universidad Maimónides (Argentina)  
 **Year:** 2026  
 **License:** [MIT](LICENSE)
 
