@@ -169,6 +169,8 @@ Each perturbation recalculates $T_d$ and $R_c$ to show directional sensitivity, 
 
 You don't need to be an expert in algebra or computational modeling to use SINAP. You can use any modern LLM (like ChatGPT, Claude, or Gemini) to simulate the equation for your clinical cases using conversational data (like WhatsApp exports).
 
+> **[NEW] Extended Clinical Vignette:** For a full, multi-page transcript demonstrating a complete cycle of dysregulation, gaslighting, and DARVO, check out our new **[VIGNETTES.md](VIGNETTES.md)** file. It contains the raw chat log and the exact prompt to test the AI's diagnostic capabilities.
+
 **Instructions:**
 1. Open your preferred AI chatbot.
 2. Copy and paste the prompt below, which includes a real (anonymized) clinical vignette of a couple in high conflict.
