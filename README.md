@@ -165,6 +165,49 @@ Each perturbation recalculates $T_d$ and $R_c$ to show directional sensitivity, 
 
 ---
 
+## 🤖 How to Test SINAP with AI (For Clinicians & Psychologists)
+
+You don't need to be an expert in algebra or computational modeling to use SINAP. You can use any modern LLM (like ChatGPT, Claude, or Gemini) to simulate the equation for your clinical cases. 
+
+**Instructions:**
+1. Open your preferred AI chatbot.
+2. Copy and paste the prompt below.
+3. Modify the values (0 to 10) based on your patient's current state.
+
+### 🇬🇧 English Prompt
+```text
+Act as a clinical simulator for the SINAP model (Systems-based Interpersonal and Narrative Algorithmic Prediction). 
+Here are my patient's current variable states on a scale of 0 to 10:
+- V (Vulnerability / Active Schemas): 8
+- E (External Stressors): 7
+- R1 (Effective Emotional Regulation): 3
+- R2 (Intrusive Regulation by others / DARVO): 9
+- Gamma (Sensitivity to Intrusion, 0.1 to 1.0): 0.9
+
+Please calculate the current Tension of the day (Td), assuming yesterday's tension T(d-1) was 5 and the Persistence rate (Lambda) is 0.8. 
+Use the formula: Td = clamp( T(d-1)*Lambda + V + E - R1 + Gamma*(R2^2), 0, 10 )
+
+Based on the numerical result, explain the systemic and psychological meaning of this state. Is the patient Stable, Unstable, Forming a Storm, or in a Critical Event? What is the imminent risk of dysregulation?
+```
+
+### 🇪🇸 Prompt en Español (Para psicólogos hispanohablantes)
+```text
+Actúa como un simulador clínico del modelo SINAP (Predicción Algorítmica Narrativa e Interpersonal basada en Sistemas). 
+Estos son los valores actuales de mi paciente en una escala del 0 al 10:
+- V (Vulnerabilidad / Esquemas activos): 8
+- E (Estresores externos): 7
+- R1 (Regulación emocional efectiva): 3
+- R2 (Regulación intrusiva de terceros / DARVO): 9
+- Gamma (Sensibilidad a la intrusión, de 0.1 a 1.0): 0.9
+
+Calcula la Tensión del día (Td) sabiendo que la tensión de ayer T(d-1) era 5 y la persistencia (Lambda) es 0.8. 
+Usa la fórmula: Td = clamp( T(d-1)*Lambda + V + E - R1 + Gamma*(R2^2), 0, 10 )
+
+Con base en el resultado numérico, explícame el significado psicológico y sistémico de este estado. ¿El paciente se encuentra Estable, Inestable, Formando Tormenta o en un Evento Crítico? ¿Cuál es el riesgo de desregulación inminente?
+```
+
+---
+
 ## 🔬 Intended Use
 
 - **Clinical Supervision**: Structured case formulation and risk assessment.
