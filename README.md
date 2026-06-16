@@ -178,30 +178,33 @@ You don't need to be an expert in algebra or computational modeling to use SINAP
 
 ```text
 Actúa como un simulador clínico del modelo SINAP (Predicción Algorítmica Narrativa e Interpersonal basada en Sistemas). 
-A continuación, te presento una viñeta clínica basada en una transcripción de WhatsApp de una pareja (los llamaremos Andrés y Daniela) que ha otorgado consentimiento para analizar su dinámica. 
+A continuación, te presento una viñeta clínica basada en una transcripción de WhatsApp de una pareja (los llamaremos Sebastián y Mariela) que asiste a terapia de pareja y ha otorgado consentimiento para analizar su dinámica. 
 
-Contexto: Daniela está atravesando un día difícil. Andrés intenta establecer un límite ante agresiones previas.
+Contexto clínico: 
+- Sebastián: 49 años, abogado, con hijos de un matrimonio anterior. Presenta apego predominantemente seguro/estable.
+- Mariela: 42 años, abogada, sin hijos. Presenta un esquema de trauma por abandono paterno severo y cuenta con un sistema familiar (clan) que refuerza activamente su desregulación y narrativas de victimización.
+- Situación actual: Mariela está atravesando un día emocionalmente difícil. Sebastián intenta establecer un límite ante agresiones previas.
 
 --- INICIO DE LA TRANSCRIPCIÓN ---
-Andrés: "reproches y echarme la culpa de que todos estos meses en los que estas alienada son culpa mia, cuando esto es algo que arrastras de años, bueno no. Perdon pero tengo que cuidar mi cabeza"
-Daniela: "Ok"
-Daniela: "Gracias por entender que es un día movilizante y empatizar"
-Daniela: "Tu trato fue muy amable y contenedor"
-Daniela: "Beso"
-Andrés: "ahhh ahora sacas esa carta?"
-Andrés: "hasta oré por tu viejo… te cagaste en todo eso y ya arrancaste con que 'veo que ahora me desbloqueaste' cuando anoche totalmente sacada no hacias otra cosa que agredirme"
-Daniela: "Mientras q no hables mal de él es suficiente"
+Sebastián: "reproches y echarme la culpa de que todos estos meses en los que estas alienada son culpa mia, cuando esto es algo que arrastras de años, bueno no. Perdon pero tengo que cuidar mi cabeza"
+Mariela: "Ok"
+Mariela: "Gracias por entender que es un día movilizante y empatizar"
+Mariela: "Tu trato fue muy amable y contenedor"
+Mariela: "Beso"
+Sebastián: "ahhh ahora sacas esa carta?"
+Sebastián: "hasta oré por tu viejo… te cagaste en todo eso y ya arrancaste con que 'veo que ahora me desbloqueaste' cuando anoche totalmente sacada no hacias otra cosa que agredirme"
+Mariela: "Mientras q no hables mal de él es suficiente"
 --- FIN DE LA TRANSCRIPCIÓN ---
 
 Instrucciones para la IA:
-1. Analiza el diálogo y extrae un valor estimado (de 0 a 10) para las variables del modelo SINAP de Daniela: 
-   - V (Vulnerabilidad / Esquemas activos)
-   - E (Estresores externos)
-   - R1 (Regulación efectiva)
-   - R2 (Regulación intrusiva/DARVO hacia el otro)
+1. Analiza el diálogo y el contexto sistémico. Extrae un valor estimado (de 0 a 10) para las variables del modelo SINAP aplicadas a Mariela en ese momento: 
+   - V (Vulnerabilidad / Esquemas de abandono activos)
+   - E (Estresores externos / Influencia del sistema familiar)
+   - R1 (Regulación efectiva / Capacidad de auto-calmarse)
+   - R2 (Regulación intrusiva/DARVO hacia Sebastián)
    - Gamma (Sensibilidad a la intrusión, de 0.1 a 1.0)
-   - A (Asimetría sistémica / Invalidadción)
-2. Calcula la Tensión del día (Td) para Daniela usando la fórmula: Td = clamp( T(d-1)*Lambda + V + E - R1 + Gamma*(R2^2), 0, 10 ) 
+   - A (Asimetría sistémica / Invalidación)
+2. Calcula la Tensión del día (Td) para Mariela usando la fórmula: Td = clamp( T(d-1)*Lambda + V + E - R1 + Gamma*(R2^2), 0, 10 ) 
    Asume que la tensión de ayer T(d-1) era 6 y la persistencia (Lambda) es 0.8.
 3. Explícame el significado psicológico y sistémico de este estado. ¿Se observa un patrón de DARVO o Baiting? ¿El sistema está Estable, Inestable, Formando Tormenta o en un Evento Crítico?
 ```
@@ -210,30 +213,33 @@ Instrucciones para la IA:
 
 ```text
 Act as a clinical simulator for the SINAP model (Systems-based Interpersonal and Narrative Algorithmic Prediction). 
-Below is a clinical vignette based on a WhatsApp transcript from a couple (we will call them Andres and Daniela).
+Below is a clinical vignette based on a WhatsApp transcript from a couple in therapy (we will call them Sebastian and Mariela) who have granted consent for their dynamic to be analyzed.
 
-Context: Daniela is having a difficult day. Andres is trying to set a boundary regarding previous aggressive behavior.
+Clinical Context:
+- Sebastian: 49 years old, lawyer, has children from a previous marriage. Exhibits a predominantly secure/stable attachment style.
+- Mariela: 42 years old, lawyer, no children. Exhibits a severe father-abandonment trauma schema, supported by an extended family system (clan) that actively reinforces her dysregulation and victim-narratives.
+- Current situation: Mariela is having an emotionally difficult day. Sebastian is trying to set a boundary regarding previous aggressive behavior.
 
 --- TRANSCRIPT START ---
-Andres: "blaming me and reproaching me that all these months you've been alienated is my fault, when this is something you've been carrying for years, well no. I'm sorry but I have to protect my mental health."
-Daniela: "Ok"
-Daniela: "Thank you for understanding that it's an emotionally heavy day and for empathizing."
-Daniela: "Your treatment was very kind and supportive."
-Daniela: "Kiss"
-Andres: "ahhh so now you pull that card?"
-Andres: "I even prayed for your old man... you didn't care about any of that and started with 'I see you unblocked me now' when last night you were completely unhinged doing nothing but attacking me."
-Daniela: "As long as you don't speak ill of him, that's enough."
+Sebastian: "blaming me and reproaching me that all these months you've been alienated is my fault, when this is something you've been carrying for years, well no. I'm sorry but I have to protect my mental health."
+Mariela: "Ok"
+Mariela: "Thank you for understanding that it's an emotionally heavy day and for empathizing."
+Mariela: "Your treatment was very kind and supportive."
+Mariela: "Kiss"
+Sebastian: "ahhh so now you pull that card?"
+Sebastian: "I even prayed for your old man... you didn't care about any of that and started with 'I see you unblocked me now' when last night you were completely unhinged doing nothing but attacking me."
+Mariela: "As long as you don't speak ill of him, that's enough."
 --- TRANSCRIPT END ---
 
 Instructions for the AI:
-1. Analyze the dialogue and extract an estimated value (0 to 10) for Daniela's SINAP model variables:
-   - V (Vulnerability / Active Schemas)
-   - E (External Stressors)
-   - R1 (Effective Regulation)
-   - R2 (Intrusive Regulation/DARVO towards the other)
+1. Analyze the dialogue and systemic context. Extract an estimated value (0 to 10) for Mariela's SINAP model variables at this moment:
+   - V (Vulnerability / Active Abandonment Schemas)
+   - E (External Stressors / Family system influence)
+   - R1 (Effective Regulation / Ability to self-soothe)
+   - R2 (Intrusive Regulation/DARVO towards Sebastian)
    - Gamma (Intrusion Sensitivity, 0.1 to 1.0)
    - A (Systemic Asymmetry / Invalidation)
-2. Calculate the Tension of the day (Td) for Daniela using the formula: Td = clamp( T(d-1)*Lambda + V + E - R1 + Gamma*(R2^2), 0, 10 )
+2. Calculate the Tension of the day (Td) for Mariela using the formula: Td = clamp( T(d-1)*Lambda + V + E - R1 + Gamma*(R2^2), 0, 10 )
    Assume yesterday's tension T(d-1) was 6 and the persistence (Lambda) is 0.8.
 3. Explain the systemic and psychological meaning of this state. Is there a pattern of DARVO or Baiting? Is the system Stable, Unstable, Forming a Storm, or in a Critical Event?
 ```
