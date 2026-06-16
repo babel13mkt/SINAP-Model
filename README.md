@@ -2,6 +2,8 @@
 
 > A heuristic computational model for dynamic assessment of emotional dysregulation in clinical and forensic psychology contexts.
 
+**Keywords / Palabras Clave:** Borderline Personality Disorder (BPD), Trastorno Límite de la Personalidad (TLP), Reactive Abuse, Abuso Reactivo, Intermittent Reinforcement, Refuerzo Intermitente, DARVO, Narcissistic Abuse, Abuso Narcisista, Trauma Bonding, Systems Theory, Emotion Regulation, Regulación Emocional, Dinámicas Vinculares, Psicología Clínica, Computational Psychology.
+
 **Author:** Juan Andres Ubeda  
 **Affiliation:** Juan Andres UBeda - Psicología - Universidad Maimónides (Argentina)  
 **Year:** 2026  
