@@ -165,45 +165,77 @@ Each perturbation recalculates $T_d$ and $R_c$ to show directional sensitivity, 
 
 ---
 
-## 🤖 How to Test SINAP with AI (For Clinicians & Psychologists)
+## 🤖 How to Test SINAP with AI: The Clinical Vignette Method
 
-You don't need to be an expert in algebra or computational modeling to use SINAP. You can use any modern LLM (like ChatGPT, Claude, or Gemini) to simulate the equation for your clinical cases. 
+You don't need to be an expert in algebra or computational modeling to use SINAP. You can use any modern LLM (like ChatGPT, Claude, or Gemini) to simulate the equation for your clinical cases using conversational data (like WhatsApp exports).
 
 **Instructions:**
 1. Open your preferred AI chatbot.
-2. Copy and paste the prompt below.
-3. Modify the values (0 to 10) based on your patient's current state.
+2. Copy and paste the prompt below, which includes a real (anonymized) clinical vignette of a couple in high conflict.
+3. Watch the AI extract the variables from the text, run the SINAP equation, and provide a systemic risk assessment.
 
-### 🇬🇧 English Prompt
-```text
-Act as a clinical simulator for the SINAP model (Systems-based Interpersonal and Narrative Algorithmic Prediction). 
-Here are my patient's current variable states on a scale of 0 to 10:
-- V (Vulnerability / Active Schemas): 8
-- E (External Stressors): 7
-- R1 (Effective Emotional Regulation): 3
-- R2 (Intrusive Regulation by others / DARVO): 9
-- Gamma (Sensitivity to Intrusion, 0.1 to 1.0): 0.9
+### 🇪🇸 Prompt de Prueba en Español (Para copiar y pegar en la IA)
 
-Please calculate the current Tension of the day (Td), assuming yesterday's tension T(d-1) was 5 and the Persistence rate (Lambda) is 0.8. 
-Use the formula: Td = clamp( T(d-1)*Lambda + V + E - R1 + Gamma*(R2^2), 0, 10 )
-
-Based on the numerical result, explain the systemic and psychological meaning of this state. Is the patient Stable, Unstable, Forming a Storm, or in a Critical Event? What is the imminent risk of dysregulation?
-```
-
-### 🇪🇸 Prompt en Español (Para psicólogos hispanohablantes)
 ```text
 Actúa como un simulador clínico del modelo SINAP (Predicción Algorítmica Narrativa e Interpersonal basada en Sistemas). 
-Estos son los valores actuales de mi paciente en una escala del 0 al 10:
-- V (Vulnerabilidad / Esquemas activos): 8
-- E (Estresores externos): 7
-- R1 (Regulación emocional efectiva): 3
-- R2 (Regulación intrusiva de terceros / DARVO): 9
-- Gamma (Sensibilidad a la intrusión, de 0.1 a 1.0): 0.9
+A continuación, te presento una viñeta clínica basada en una transcripción de WhatsApp de una pareja (los llamaremos Andrés y Daniela) que ha otorgado consentimiento para analizar su dinámica. 
 
-Calcula la Tensión del día (Td) sabiendo que la tensión de ayer T(d-1) era 5 y la persistencia (Lambda) es 0.8. 
-Usa la fórmula: Td = clamp( T(d-1)*Lambda + V + E - R1 + Gamma*(R2^2), 0, 10 )
+Contexto: Daniela está atravesando un día difícil. Andrés intenta establecer un límite ante agresiones previas.
 
-Con base en el resultado numérico, explícame el significado psicológico y sistémico de este estado. ¿El paciente se encuentra Estable, Inestable, Formando Tormenta o en un Evento Crítico? ¿Cuál es el riesgo de desregulación inminente?
+--- INICIO DE LA TRANSCRIPCIÓN ---
+Andrés: "reproches y echarme la culpa de que todos estos meses en los que estas alienada son culpa mia, cuando esto es algo que arrastras de años, bueno no. Perdon pero tengo que cuidar mi cabeza"
+Daniela: "Ok"
+Daniela: "Gracias por entender que es un día movilizante y empatizar"
+Daniela: "Tu trato fue muy amable y contenedor"
+Daniela: "Beso"
+Andrés: "ahhh ahora sacas esa carta?"
+Andrés: "hasta oré por tu viejo… te cagaste en todo eso y ya arrancaste con que 'veo que ahora me desbloqueaste' cuando anoche totalmente sacada no hacias otra cosa que agredirme"
+Daniela: "Mientras q no hables mal de él es suficiente"
+--- FIN DE LA TRANSCRIPCIÓN ---
+
+Instrucciones para la IA:
+1. Analiza el diálogo y extrae un valor estimado (de 0 a 10) para las variables del modelo SINAP de Daniela: 
+   - V (Vulnerabilidad / Esquemas activos)
+   - E (Estresores externos)
+   - R1 (Regulación efectiva)
+   - R2 (Regulación intrusiva/DARVO hacia el otro)
+   - Gamma (Sensibilidad a la intrusión, de 0.1 a 1.0)
+   - A (Asimetría sistémica / Invalidadción)
+2. Calcula la Tensión del día (Td) para Daniela usando la fórmula: Td = clamp( T(d-1)*Lambda + V + E - R1 + Gamma*(R2^2), 0, 10 ) 
+   Asume que la tensión de ayer T(d-1) era 6 y la persistencia (Lambda) es 0.8.
+3. Explícame el significado psicológico y sistémico de este estado. ¿Se observa un patrón de DARVO o Baiting? ¿El sistema está Estable, Inestable, Formando Tormenta o en un Evento Crítico?
+```
+
+### 🇬🇧 English Testing Prompt (To copy & paste into your AI)
+
+```text
+Act as a clinical simulator for the SINAP model (Systems-based Interpersonal and Narrative Algorithmic Prediction). 
+Below is a clinical vignette based on a WhatsApp transcript from a couple (we will call them Andres and Daniela).
+
+Context: Daniela is having a difficult day. Andres is trying to set a boundary regarding previous aggressive behavior.
+
+--- TRANSCRIPT START ---
+Andres: "blaming me and reproaching me that all these months you've been alienated is my fault, when this is something you've been carrying for years, well no. I'm sorry but I have to protect my mental health."
+Daniela: "Ok"
+Daniela: "Thank you for understanding that it's an emotionally heavy day and for empathizing."
+Daniela: "Your treatment was very kind and supportive."
+Daniela: "Kiss"
+Andres: "ahhh so now you pull that card?"
+Andres: "I even prayed for your old man... you didn't care about any of that and started with 'I see you unblocked me now' when last night you were completely unhinged doing nothing but attacking me."
+Daniela: "As long as you don't speak ill of him, that's enough."
+--- TRANSCRIPT END ---
+
+Instructions for the AI:
+1. Analyze the dialogue and extract an estimated value (0 to 10) for Daniela's SINAP model variables:
+   - V (Vulnerability / Active Schemas)
+   - E (External Stressors)
+   - R1 (Effective Regulation)
+   - R2 (Intrusive Regulation/DARVO towards the other)
+   - Gamma (Intrusion Sensitivity, 0.1 to 1.0)
+   - A (Systemic Asymmetry / Invalidation)
+2. Calculate the Tension of the day (Td) for Daniela using the formula: Td = clamp( T(d-1)*Lambda + V + E - R1 + Gamma*(R2^2), 0, 10 )
+   Assume yesterday's tension T(d-1) was 6 and the persistence (Lambda) is 0.8.
+3. Explain the systemic and psychological meaning of this state. Is there a pattern of DARVO or Baiting? Is the system Stable, Unstable, Forming a Storm, or in a Critical Event?
 ```
 
 ---
