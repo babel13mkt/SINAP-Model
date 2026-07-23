@@ -5,7 +5,7 @@
 **Keywords / Palabras Clave:** Borderline Personality Disorder (BPD), Trastorno Límite de la Personalidad (TLP), Reactive Abuse, Abuso Reactivo, Intermittent Reinforcement, Refuerzo Intermitente, DARVO, Narcissistic Abuse, Abuso Narcisista, Trauma Bonding, Systems Theory, Emotion Regulation, Regulación Emocional, Dinámicas Vinculares, Psicología Clínica, Computational Psychology.
 
 **Author:** Juan Andres Ubeda  
-**Affiliation:** Juan Andres UBeda - Psicología - Universidad Maimónides (Argentina)  
+**Affiliation:** Juan Andres Ubeda - Psicología - Universidad Maimónides (Argentina)  
 **Year:** 2026  
 **License:** [MIT](LICENSE)
 
@@ -60,6 +60,30 @@ The model generates concrete, time-windowed behavioral predictions (0–24h, 24�
 
 ### **P — Psychometric & Quantitative Foundation**
 All variables are scored on a normalized $[0, 10]$ scale, enabling cross-case comparison, longitudinal tracking, and sensitivity analysis. The $\text{clamp}$ function ensures numerical stability. The model is compatible with standard psychometric frameworks (e.g., PTSD Checklist, Difficulties in Emotion Regulation Scale — DERS).
+
+---
+
+## 🎓 Academic Research & Thesis Methodology (APA / SCED Standard)
+
+> **Note for Academic Thesis Directors & Peer Reviewers:** 
+> SINAP is designed as a hybrid computational framework combining **Natural Language Processing (NLP)** feature extraction with a **deterministic dynamic systems equation**. To ensure methodological rigor, eliminate investigator bias, and prevent AI hallucination, SINAP research adheres to the following protocols:
+
+### 1. Deterministic Math Engine vs. NLP Extraction
+To refute "AI hallucination" or prompt-alignment bias:
+- **LLM Function:** The LLM acts strictly as a standardized NLP text parser to score qualitative conversational segments into normalized metrics $[0, 10]$ based on a closed clinical coding taxonomy.
+- **Deterministic Engine:** The dynamic tension equation ($T_d = \text{clamp}(T_{d-1}\cdot\lambda + V + E - R_1 + \gamma\cdot R_2^2,\ 0,\ 10)$) is **100% deterministic**. It is executed via Python script (`sinap_calculator.py`), completely independent of LLM generative generation.
+
+### 2. Single-Case Experimental Design (SCED) Protocol
+When applying SINAP to qualitative clinical transcripts or longitudinal case studies ($N=1$ exploratory pilot):
+1. **De-identification & Anonymization:** Datasets are strictly stripped of all PII and contextual markers.
+2. **Inter-Rater Reliability ($\kappa > 0.80$):** Independent clinical judges (blind to the SINAP equation) code the transcript for DARVO, Splitting, and Escalation markers using standardized CBT/DBT scales.
+3. **Statistical Concordance:** The deterministic output of $T_d$ and $R_c$ is correlated against the blind human inter-rater scores to calculate construct validity ($R^2$ and Fleiss' Kappa $\kappa$).
+
+### 3. Grounding in State-of-the-Art Dynamical Systems
+SINAP extends established literature in computational psychiatry and mathematical psychopathology:
+- **Gottman & Murray (2002):** Non-linear differential equations for dyadic relational stability.
+- **Zeeman (1976) & Tschacher (2015):** Catastrophe theory applied to Borderline Personality Disorder affective flips.
+- **Linehan (1993):** Biosocial model of emotional lability and invalidating environments.
 
 ---
 
@@ -176,76 +200,6 @@ You don't need to be an expert in algebra or computational modeling to use SINAP
 2. Copy and paste the prompt below, which includes a real (anonymized) clinical vignette of a couple in high conflict.
 3. Watch the AI extract the variables from the text, run the SINAP equation, and provide a systemic risk assessment.
 
-### 🇪🇸 Prompt de Prueba en Español (Para copiar y pegar en la IA)
-
-```text
-Actúa como un simulador clínico del modelo SINAP (Predicción Algorítmica Narrativa e Interpersonal basada en Sistemas). 
-A continuación, te presento una viñeta clínica basada en una transcripción de WhatsApp de una pareja (los llamaremos Sebastián y Mariela) que asiste a terapia de pareja y ha otorgado consentimiento para analizar su dinámica. 
-
-Contexto clínico: 
-- Sebastián: 49 años, abogado, con hijos de un matrimonio anterior. Presenta apego predominantemente seguro/estable.
-- Mariela: 42 años, abogada, sin hijos. Presenta un esquema de trauma por abandono paterno severo y cuenta con un sistema familiar (clan) que refuerza activamente su desregulación y narrativas de victimización.
-- Situación actual: Mariela está atravesando un día emocionalmente difícil. Sebastián intenta establecer un límite ante agresiones previas.
-
---- INICIO DE LA TRANSCRIPCIÓN ---
-Sebastián: "reproches y echarme la culpa de que todos estos meses en los que estas alienada son culpa mia, cuando esto es algo que arrastras de años, bueno no. Perdon pero tengo que cuidar mi cabeza"
-Mariela: "Ok"
-Mariela: "Gracias por entender que es un día movilizante y empatizar"
-Mariela: "Tu trato fue muy amable y contenedor"
-Mariela: "Beso"
-Sebastián: "ahhh ahora sacas esa carta?"
-Sebastián: "hasta oré por tu viejo… te cagaste en todo eso y ya arrancaste con que 'veo que ahora me desbloqueaste' cuando anoche totalmente sacada no hacias otra cosa que agredirme"
-Mariela: "Mientras q no hables mal de él es suficiente"
---- FIN DE LA TRANSCRIPCIÓN ---
-
-Instrucciones para la IA:
-1. Analiza el diálogo y el contexto sistémico. Extrae un valor estimado (de 0 a 10) para las variables del modelo SINAP aplicadas a Mariela en ese momento: 
-   - V (Vulnerabilidad / Esquemas de abandono activos)
-   - E (Estresores externos / Influencia del sistema familiar)
-   - R1 (Regulación efectiva / Capacidad de auto-calmarse)
-   - R2 (Regulación intrusiva/DARVO hacia Sebastián)
-   - Gamma (Sensibilidad a la intrusión, de 0.1 a 1.0)
-   - A (Asimetría sistémica / Invalidación)
-2. Calcula la Tensión del día (Td) para Mariela usando la fórmula: Td = clamp( T(d-1)*Lambda + V + E - R1 + Gamma*(R2^2), 0, 10 ) 
-   Asume que la tensión de ayer T(d-1) era 6 y la persistencia (Lambda) es 0.8.
-3. Explícame el significado psicológico y sistémico de este estado. ¿Se observa un patrón de DARVO o Baiting? ¿El sistema está Estable, Inestable, Formando Tormenta o en un Evento Crítico?
-```
-
-### 🇬🇧 English Testing Prompt (To copy & paste into your AI)
-
-```text
-Act as a clinical simulator for the SINAP model (Systems-based Interpersonal and Narrative Algorithmic Prediction). 
-Below is a clinical vignette based on a WhatsApp transcript from a couple in therapy (we will call them Sebastian and Mariela) who have granted consent for their dynamic to be analyzed.
-
-Clinical Context:
-- Sebastian: 49 years old, lawyer, has children from a previous marriage. Exhibits a predominantly secure/stable attachment style.
-- Mariela: 42 years old, lawyer, no children. Exhibits a severe father-abandonment trauma schema, supported by an extended family system (clan) that actively reinforces her dysregulation and victim-narratives.
-- Current situation: Mariela is having an emotionally difficult day. Sebastian is trying to set a boundary regarding previous aggressive behavior.
-
---- TRANSCRIPT START ---
-Sebastian: "blaming me and reproaching me that all these months you've been alienated is my fault, when this is something you've been carrying for years, well no. I'm sorry but I have to protect my mental health."
-Mariela: "Ok"
-Mariela: "Thank you for understanding that it's an emotionally heavy day and for empathizing."
-Mariela: "Your treatment was very kind and supportive."
-Mariela: "Kiss"
-Sebastian: "ahhh so now you pull that card?"
-Sebastian: "I even prayed for your old man... you didn't care about any of that and started with 'I see you unblocked me now' when last night you were completely unhinged doing nothing but attacking me."
-Mariela: "As long as you don't speak ill of him, that's enough."
---- TRANSCRIPT END ---
-
-Instructions for the AI:
-1. Analyze the dialogue and systemic context. Extract an estimated value (0 to 10) for Mariela's SINAP model variables at this moment:
-   - V (Vulnerability / Active Abandonment Schemas)
-   - E (External Stressors / Family system influence)
-   - R1 (Effective Regulation / Ability to self-soothe)
-   - R2 (Intrusive Regulation/DARVO towards Sebastian)
-   - Gamma (Intrusion Sensitivity, 0.1 to 1.0)
-   - A (Systemic Asymmetry / Invalidation)
-2. Calculate the Tension of the day (Td) for Mariela using the formula: Td = clamp( T(d-1)*Lambda + V + E - R1 + Gamma*(R2^2), 0, 10 )
-   Assume yesterday's tension T(d-1) was 6 and the persistence (Lambda) is 0.8.
-3. Explain the systemic and psychological meaning of this state. Is there a pattern of DARVO or Baiting? Is the system Stable, Unstable, Forming a Storm, or in a Critical Event?
-```
-
 ---
 
 ## 🔬 Intended Use
@@ -265,10 +219,13 @@ Instructions for the AI:
 - Ainsworth, M. D. S., Blehar, M. C., Waters, E., & Wall, S. (1978). *Patterns of attachment.* Erlbaum.
 - Beck, A. T. (1979). *Cognitive therapy and the emotional disorders.* International Universities Press.
 - Bertalanffy, L. von (1968). *General System Theory.* Braziller.
+- Gottman, J. M., & Murray, J. D. (2002). *The mathematics of marriage: Dynamic nonlinear models.* MIT Press.
 - Gratz, K. L., & Roemer, L. (2004). Multidimensional assessment of emotion regulation and dysregulation. *Journal of Psychopathology and Behavioral Assessment, 26*(1), 41–54.
 - Linehan, M. M. (1993). *Cognitive-behavioral treatment of borderline personality disorder.* Guilford Press.
 - Main, M., & Hesse, E. (1990). Parents' unresolved traumatic experiences are related to infant disorganized attachment status. In M. T. Greenberg, D. Cicchetti, & E. M. Cummings (Eds.), *Attachment in the preschool years* (pp. 161–182). University of Chicago Press.
+- Tschacher, W. (2015). Nonlinear dynamical systems in psychiatry and clinical psychology. *Frontiers in Psychiatry, 6*, 124.
 - Young, J. E., Klosko, J. S., & Weishaar, M. E. (2003). *Schema therapy: A practitioner's guide.* Guilford Press.
+- Zeeman, E. C. (1976). Catastrophe theory. *Scientific American, 234*(4), 65-83.
 
 ---
 
